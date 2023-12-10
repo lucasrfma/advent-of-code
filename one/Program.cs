@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-namespace One;
+﻿namespace One;
 
 internal class Program 
 {
@@ -53,13 +52,11 @@ internal class Program
 
         while(!sr.EndOfStream) {
             string line = sr.ReadLine()!;
-            Console.WriteLine(line);
 
             char firstDigit = FirstDigit(line);
             char lastDigit = LastDigit(line);
 
             var lineNumber = $"{firstDigit}{lastDigit}";
-            Console.WriteLine($"line: {lineNumber}");
             sum += int.Parse($"{lineNumber}");
 
         }
@@ -68,29 +65,19 @@ internal class Program
 
     static char FirstDigit(string toEvaluate)
     {
-        for (int i = 0; i < toEvaluate.Length; i++)
+        for (int i = 1; i <= toEvaluate.Length; i++)
         {
-            bool partialMatch = true;
-            for (int j = i+1; j <= toEvaluate.Length && partialMatch; j++)
-            {
-                char c = toEvaluate[j-1];
+            char c = toEvaluate[i-1];
                 if (c >= '0' && c <= '9') 
                 {
                     return c;
                 }
-                
-                string partial = toEvaluate[i..j];
-
-                foreach( var (key, value) in digitMap )
+            string jumble = toEvaluate[0..i];
+            foreach( var (key, value) in digitMap )
+            {
+                if (jumble.Contains(key))
                 {
-                    bool completeMatch;
-                    (partialMatch, completeMatch) = CheckDigit(partial, key);
-                    if (completeMatch) {
-                        return value;
-                    }
-                    if (partialMatch) {
-                        break;
-                    }
+                    return value;
                 }
             }
         }
@@ -98,72 +85,23 @@ internal class Program
     }
     static char LastDigit(string toEvaluate)
     {
-        for (int i = toEvaluate.Length; i > 0; i--)
+        for (int i = 1; i <= toEvaluate.Length; i++)
         {
-            bool partialMatch = true;
-            for (int j = i-1; j >= 0 && partialMatch; j--)
+            char c = toEvaluate[^i];
+            if (c >= '0' && c <= '9') 
             {
-                char c = toEvaluate[j];
-                if (c >= '0' && c <= '9') 
+                return c;
+            }
+            string jumble = toEvaluate[^i..];
+            foreach( var (key, value) in digitMap )
+            {
+                if (jumble.Contains(key))
                 {
-                    return c;
-                }
-                
-                string partial = toEvaluate[j..i];
-
-                foreach( var (key, value) in digitMap )
-                {
-                    bool completeMatch;
-                    (partialMatch, completeMatch) = CheckDigitReverse(partial, key);
-                    if (completeMatch) {
-                        return value;
-                    }
-                    if (partialMatch) {
-                        break;
-                    }
+                    return value;
                 }
             }
         }
         return default;
-    }
-
-    static (bool, bool) CheckDigit(string value, string target)
-    {
-        if (value.Length < target.Length)
-        {
-            var targetSubstring = target[..value.Length];
-            if (value == targetSubstring)
-            {
-                return (true, false);
-            }
-        }
-        if (value.Length == target.Length)
-        {
-            if (value == target)
-            {
-                return (true, true);
-            }
-        }
-        return (false, false);
-    }
-    static (bool, bool) CheckDigitReverse(string value, string target)
-    {
-        if (value.Length < target.Length)
-        {
-            var targetSubstring = target[^value.Length..];
-            if (value == targetSubstring)
-            {
-                return (true, false);
-            }
-        }
-        if (value.Length == target.Length)
-        {
-            if (value == target)
-            {
-                return (true, true);
-            }
-        }
-        return (false, false);
     }
 
     static void PartOne(StreamReader sr)
