@@ -80,7 +80,7 @@ class Program
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Could not read file {args[0]}");
+            Console.WriteLine($"Could not read file {inputFile}");
             Console.WriteLine(e.Message);
             return;
         }
