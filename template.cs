@@ -1,5 +1,3 @@
-using System.Collections;
-
 internal class Program
 {
     private static void Main(string[] args)
@@ -23,7 +21,7 @@ internal class Program
         // PartTwo(sr);
     }
 
-    void PartOne(StreamReader sr)
+    static void PartOne(StreamReader sr)
     {
         Console.WriteLine("Part One");
         while(!sr.EndOfStream)
@@ -32,7 +30,7 @@ internal class Program
         }
     }
 
-    void PartTwo(StreamReader sr)
+    static void PartTwo(StreamReader sr)
     {
         Console.WriteLine("Part Two");
         while(!sr.EndOfStream)
