@@ -36,8 +36,7 @@ public class Program
             }
             if (leftToAdd > 0)
             {
-                long restStart = attributeInfo.Start + (attributeInfo.Length - leftToAdd);
-                result.Add(new (restStart,leftToAdd));
+                result.Add(new (siStart,leftToAdd));
             }
             return result;
         }
@@ -84,7 +83,7 @@ public class Program
         logger.LogInformation("Closest: " + closest);
     }
     
-    internal static long ClosestLocationSeedRange2(AttributeInfo seedInfo, List<Converter> converterList)
+    internal static long ClosestLocationSeedRange(AttributeInfo seedInfo, List<Converter> converterList)
     {
         List<AttributeInfo> attributeInfos = [seedInfo];
         foreach (var cvt in converterList)
@@ -127,7 +126,7 @@ public class Program
             .Select(si =>
             {
                 logger.LogInformation($"Processing seed info: {si}");
-                return ClosestLocationSeedRange2(si, converterList);
+                return ClosestLocationSeedRange(si, converterList);
             }).Min();
 
         logger.LogInformation("Closest: " + closest);
