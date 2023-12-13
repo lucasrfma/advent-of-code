@@ -28,3 +28,6 @@ It was really fun and I think I learned a lot doing this =)
 
 Also decided to change project structure:
 Now it is a single dotnet project. No more repeated main functions, and easy to test performance for each day now. (Kinda messed up though, with every day having a Program class...)
+
+## Day Six
+The day I used Bhaskara's Formula after graduating high school
