@@ -1,0 +1,1 @@
+cp -n input-files bin/Debug/net8.0/ -r

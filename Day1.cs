@@ -2,7 +2,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Aoc;
 
-public class Day1
+public class Day1(StreamReader sr, ILogger logger)
 {
     static readonly Dictionary<string,char> DigitMap = new() {
             {"one", '1'},
@@ -16,7 +16,7 @@ public class Day1
             {"nine", '9'}
     };
 
-    public static void PartTwo(StreamReader sr, ILogger logger)
+    public void PartTwo()
     {
         logger.LogInformation("Part Two");
         int sum = 0;
@@ -75,7 +75,7 @@ public class Day1
         return default;
     }
 
-    public static void PartOne(StreamReader sr, ILogger logger)
+    public void PartOne()
     {
         logger.LogInformation("Part One");
         int sum = 0;

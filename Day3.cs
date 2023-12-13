@@ -2,7 +2,7 @@
 
 namespace Aoc;
 
-public class Day3
+public class Day3(StreamReader sr, ILogger logger)
 {
     // I'm not sure if only the symbols present in the example are valid symbols, so we are going for
     // an exclusion logic
@@ -61,7 +61,7 @@ public class Day3
 
     record PossibleGear(int Line, int Index);
 
-    public static void PartOne(StreamReader sr, ILogger logger)
+    public void PartOne()
     {
         logger.LogInformation("Part One");
         List<string> schematic = [];
@@ -105,7 +105,7 @@ public class Day3
         return res;
     }
 
-    public static void PartTwo(StreamReader sr, ILogger logger)
+    public void PartTwo()
     {
         logger.LogInformation("Part Two");
         List<string> schematic = [];

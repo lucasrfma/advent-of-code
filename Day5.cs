@@ -2,7 +2,7 @@
 
 namespace Aoc;
 
-public class Day5
+public class Day5(StreamReader sr, ILogger logger)
 {
     internal class Converter()
     {
@@ -58,7 +58,7 @@ public class Day5
 
     record ConverterItem(long TargetStart, long BaseStart, long RangeLength);
 
-    public static void PartOne(StreamReader sr, ILogger logger)
+    public void PartOne()
     {
         logger.LogInformation("Part One");
         long[] seeds = sr.ReadLine()!.Split(':')[1]
@@ -95,7 +95,7 @@ public class Day5
 
     internal record struct AttributeInfo(long Start, long Length);
 
-    public static void PartTwo(StreamReader sr, ILogger logger)
+    public void PartTwo()
     {
         logger.LogInformation("Part Two");
         string[] roughSeedInfo = sr.ReadLine()!.Split(':')[1]

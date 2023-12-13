@@ -2,7 +2,7 @@
 
 namespace Aoc;
 
-public class Day2
+public class Day2(StreamReader sr, ILogger logger)
 {
     class CubeSet
     {
@@ -61,7 +61,7 @@ public class Day2
         }
     }
 
-    public static void PartOne(StreamReader sr, ILogger logger)
+    public void PartOne()
     {
         CubeSet bag = new() {Red = 12, Green = 13, Blue = 14 };
         int sum = 0;
@@ -75,7 +75,7 @@ public class Day2
         logger.LogInformation("ID Sum: "+sum);
     }
 
-    public static void PartTwo(StreamReader sr, ILogger logger)
+    public void PartTwo()
     {
         int sum = 0;
 

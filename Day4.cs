@@ -2,7 +2,7 @@
 
 namespace Aoc;
 
-public class Day4
+public class Day4(StreamReader sr, ILogger logger)
 {
     class Card()
     {
@@ -34,7 +34,7 @@ public class Day4
         }
     }
 
-    public static void PartOne(StreamReader sr, ILogger logger)
+    public void PartOne()
     {
         logger.LogInformation("Part One");
         
@@ -48,7 +48,7 @@ public class Day4
         logger.LogInformation("Sum: "+sum);
     }
 
-    public static void PartTwo(StreamReader sr, ILogger logger)
+    public void PartTwo()
     {
         logger.LogInformation("Part Two");
         
