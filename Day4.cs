@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Four;
+namespace Aoc;
 
-public class Program
+public class Day4
 {
     class Card()
     {

@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging;
 
-namespace One;
+namespace Aoc;
 
-public class Program
+public class Day1
 {
     static readonly Dictionary<string,char> DigitMap = new() {
             {"one", '1'},
@@ -14,7 +14,7 @@ public class Program
             {"seven", '7'},
             {"eight", '8'},
             {"nine", '9'}
-        };
+    };
 
     public static void PartTwo(StreamReader sr, ILogger logger)
     {

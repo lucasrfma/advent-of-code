@@ -1,6 +1,8 @@
 using System.Diagnostics;
 using Microsoft.Extensions.Logging;
 
+namespace Aoc;
+
 internal class Program
 {
     private static void Main(string[] args)
@@ -69,34 +71,40 @@ internal class Program
         switch (programAndPart)
         {
             case "one1":
-                One.Program.PartOne(sr,logger);
+                Day1.PartOne(sr,logger);
                 break;
             case "one2":
-                One.Program.PartTwo(sr,logger);
+                Day1.PartTwo(sr,logger);
                 break;
             case "two1":
-                Two.Program.PartOne(sr,logger);
+                Day2.PartOne(sr,logger);
                 break;
             case "two2":
-                Two.Program.PartTwo(sr,logger);
+                Day2.PartTwo(sr,logger);
                 break;
             case "three1":
-                Three.Program.PartOne(sr,logger);
+                Day3.PartOne(sr,logger);
                 break;
             case "three2":
-                Three.Program.PartTwo(sr,logger);
+                Day3.PartTwo(sr,logger);
                 break;
             case "four1":
-                Four.Program.PartOne(sr,logger);
+                Day4.PartOne(sr,logger);
                 break;
             case "four2":
-                Four.Program.PartTwo(sr,logger);
+                Day4.PartTwo(sr,logger);
                 break;
             case "five1":
-                Five.Program.PartOne(sr,logger);
+                Day5.PartOne(sr,logger);
                 break;
             case "five2":
-                Five.Program.PartTwo(sr,logger);
+                Day5.PartTwo(sr,logger);
+                break;
+            case "six1":
+                new Day6(sr, logger).PartOne();
+                break;
+            case "six2":
+                new Day6(sr, logger).PartTwo();
                 break;
         }
     }

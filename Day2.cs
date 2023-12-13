@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Two;
+namespace Aoc;
 
-public class Program
+public class Day2
 {
     class CubeSet
     {

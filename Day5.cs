@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Five;
+namespace Aoc;
 
-public class Program
+public class Day5
 {
     internal class Converter()
     {

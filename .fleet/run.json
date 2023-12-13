@@ -3,7 +3,7 @@
         {
             "type": "dotnet",
             "name": "Dotnet configuration",
-            "projectPath": "template.csproj",
+            "projectPath": "aoc.csproj",
             "args": ["five","2","1"],
         },
         

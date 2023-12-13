@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Three;
+namespace Aoc;
 
-public class Program
+public class Day3
 {
     // I'm not sure if only the symbols present in the example are valid symbols, so we are going for
     // an exclusion logic
