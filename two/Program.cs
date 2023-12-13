@@ -1,8 +1,10 @@
-﻿namespace Two;
+﻿using Microsoft.Extensions.Logging;
 
-class Program
+namespace Two;
+
+public class Program
 {
-    class CubeSet()
+    class CubeSet
     {
         internal int Red { get; set; }
         internal int Green { get; set; }
@@ -16,10 +18,10 @@ class Program
 
     class GameInfo()
     {
-        internal int Id { get; set; }
+        internal int Id { get; }
         private CubeSet _maxByColor = new () {Red = 0, Green = 0, Blue = 0 };
-        internal CubeSet MaxByColor { get {return this._maxByColor; } 
-        set 
+        internal CubeSet MaxByColor { get => _maxByColor;
+            set
         {
             _maxByColor.Red = value.Red > _maxByColor.Red ? value.Red : _maxByColor.Red;
             _maxByColor.Green = value.Green > _maxByColor.Green ? value.Green : _maxByColor.Green;
@@ -53,46 +55,13 @@ class Program
                     case 'r': cubeSet.Red = number; break;
                     case 'g': cubeSet.Green = number; break;
                     case 'b': cubeSet.Blue = number; break;
-                    default: break;
                 }
             }
             return cubeSet;
         }
     }
 
-    static void Main(string[] args) 
-    {
-        string inputFile = "input.txt";
-        string solution = "";
-        if (args.Length > 0)
-        {
-            inputFile = args[0];
-            if (args.Length > 1)
-            {
-                solution = args[1];
-            }
-        }
-
-        StreamReader sr;
-        try
-        {
-            sr = new(inputFile);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine($"Could not read file {inputFile}");
-            Console.WriteLine(e.Message);
-            return;
-        }
-
-        switch (solution)
-        {
-            case "1": PartOne(sr); break;
-            default: PartTwo(sr); break;
-        }
-    }
-
-    static void PartOne(StreamReader sr)
+    public static void PartOne(StreamReader sr, ILogger logger)
     {
         CubeSet bag = new() {Red = 12, Green = 13, Blue = 14 };
         int sum = 0;
@@ -103,10 +72,10 @@ class Program
             if (bag.Fits(gi.MaxByColor))
                 sum += gi.Id;
         }
-        Console.WriteLine("ID Sum: "+sum);
+        logger.LogInformation("ID Sum: "+sum);
     }
 
-    static void PartTwo(StreamReader sr)
+    public static void PartTwo(StreamReader sr, ILogger logger)
     {
         int sum = 0;
 
@@ -115,6 +84,6 @@ class Program
             GameInfo gi = new GameInfo(sr.ReadLine()!);
             sum += gi.MaxByColor.Red * gi.MaxByColor.Blue * gi.MaxByColor.Green;
         }
-        Console.WriteLine("ID Sum: "+sum);
+        logger.LogInformation("ID Sum: "+sum);
     }
 }

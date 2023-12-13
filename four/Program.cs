@@ -1,27 +1,9 @@
-﻿internal class Program
+﻿using Microsoft.Extensions.Logging;
+
+namespace Four;
+
+public class Program
 {
-    private static void Main()
-    {
-        // I decided to not read console args anymore.
-        string input = "input.txt";
-
-        StreamReader sr;
-        try
-        {
-            sr = new(input);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine($"Could not read file {input}");
-            Console.WriteLine(e.Message);
-            return;
-        }
-
-//        PartOne(sr);
-        PartTwo(sr);
-
-    }
-    
     class Card()
     {
         internal int Id { get; set; }
@@ -52,9 +34,9 @@
         }
     }
 
-    static void PartOne(StreamReader sr)
+    public static void PartOne(StreamReader sr, ILogger logger)
     {
-        Console.WriteLine("Part One");
+        logger.LogInformation("Part One");
         
         List<Card> cards = [];
         while(!sr.EndOfStream)
@@ -63,12 +45,12 @@
             cards.Add(new Card(line));
         }
         int sum = cards.Sum(c => c.CardValue());
-        Console.WriteLine("Sum: "+sum);
+        logger.LogInformation("Sum: "+sum);
     }
 
-    static void PartTwo(StreamReader sr)
+    public static void PartTwo(StreamReader sr, ILogger logger)
     {
-        Console.WriteLine("Part Two");
+        logger.LogInformation("Part Two");
         
         List<Card> cards = [];
         while(!sr.EndOfStream)
@@ -82,11 +64,11 @@
             {
                 int addingIndex = i + j + 1;
                 if (addingIndex < cards.Count)
-                    cards[i+j+1].Count += cards[i].Count;
+                    cards[addingIndex].Count += cards[i].Count;
             }
         }
         int sum = cards.Sum(c => c.Count);
-        Console.WriteLine("Sum: "+sum);
+        logger.LogInformation("Sum: "+sum);
     }
     
 }

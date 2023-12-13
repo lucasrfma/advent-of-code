@@ -1,8 +1,10 @@
-﻿namespace One;
+﻿using Microsoft.Extensions.Logging;
 
-internal class Program 
+namespace One;
+
+public class Program
 {
-    static readonly Dictionary<string,char> digitMap = new() {
+    static readonly Dictionary<string,char> DigitMap = new() {
             {"one", '1'},
             {"two", '2'},
             {"three", '3'},
@@ -11,43 +13,12 @@ internal class Program
             {"six", '6'},
             {"seven", '7'},
             {"eight", '8'},
-            {"nine", '9'},
+            {"nine", '9'}
         };
-    static void Main(string[] args) 
+
+    public static void PartTwo(StreamReader sr, ILogger logger)
     {
-        string inputFile = "input.txt";
-        string solution = "";
-        if (args.Length > 0)
-        {
-            inputFile = args[0];
-            if (args.Length > 1)
-            {
-                solution = args[1];
-            }
-        }
-
-        StreamReader sr;
-        try
-        {
-            sr = new(inputFile);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine($"Could not read file {args[0]}");
-            Console.WriteLine(e.Message);
-            return;
-        }
-
-        switch (solution)
-        {
-            case "1": PartOne(sr); break;
-            default: PartTwo(sr); break;
-        }
-    }
-
-    static void PartTwo(StreamReader sr)
-    {
-        Console.WriteLine("Part Two");
+        logger.LogInformation("Part Two");
         int sum = 0;
 
         while(!sr.EndOfStream) {
@@ -60,7 +31,7 @@ internal class Program
             sum += int.Parse($"{lineNumber}");
 
         }
-        Console.WriteLine($"Sum: {sum}");
+        logger.LogInformation($"Sum: {sum}");
     }
 
     static char FirstDigit(string toEvaluate)
@@ -72,8 +43,8 @@ internal class Program
                 {
                     return c;
                 }
-            string jumble = toEvaluate[0..i];
-            foreach( var (key, value) in digitMap )
+            string jumble = toEvaluate[..i];
+            foreach( var (key, value) in DigitMap )
             {
                 if (jumble.Contains(key))
                 {
@@ -93,7 +64,7 @@ internal class Program
                 return c;
             }
             string jumble = toEvaluate[^i..];
-            foreach( var (key, value) in digitMap )
+            foreach( var (key, value) in DigitMap )
             {
                 if (jumble.Contains(key))
                 {
@@ -104,14 +75,13 @@ internal class Program
         return default;
     }
 
-    static void PartOne(StreamReader sr)
+    public static void PartOne(StreamReader sr, ILogger logger)
     {
-        Console.WriteLine("Part One");
+        logger.LogInformation("Part One");
         int sum = 0;
 
         while(!sr.EndOfStream) {
             string line = sr.ReadLine()!;
-            Console.WriteLine(line);
 
             char firstDigit = default;
             char lastDigit = default;
@@ -133,7 +103,7 @@ internal class Program
                 sum += int.Parse($"{firstDigit}{lastDigit}");
             }
         }
-        Console.WriteLine($"Sum: {sum}.");
+        logger.LogInformation($"Sum: {sum}.");
     }
 
 }

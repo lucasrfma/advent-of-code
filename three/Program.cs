@@ -1,26 +1,9 @@
-﻿internal class Program
+﻿using Microsoft.Extensions.Logging;
+
+namespace Three;
+
+public class Program
 {
-    private static void Main()
-    {
-        // I decided to not read console args anymore.
-        string inputFile = "input.txt";
-        // string inputFile = "ex-input.txt";
-        StreamReader sr;
-        try
-        {
-            sr = new(inputFile);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine($"Could not read file {inputFile}");
-            Console.WriteLine(e.Message);
-            return;
-        }
-
-        // PartOne(sr);
-        PartTwo(sr);
-    }
-
     // I'm not sure if only the symbols present in the example are valid symbols, so we are going for
     // an exclusion logic
     static bool IsSymbol(char c)
@@ -78,9 +61,9 @@
 
     record PossibleGear(int Line, int Index);
 
-    static void PartOne(StreamReader sr)
+    public static void PartOne(StreamReader sr, ILogger logger)
     {
-        Console.WriteLine("Part One");
+        logger.LogInformation("Part One");
         List<string> schematic = [];
 
         List<NumberPosition> nps = [];
@@ -103,7 +86,7 @@
             if (IsValidNp(np, schematic))
                 sum += np.Number;
         }
-        Console.WriteLine("Sum: "+sum);
+        logger.LogInformation("Sum: "+sum);
     }
 
     static int GearRatio(PossibleGear pg, List<NumberPosition> nps)
@@ -113,18 +96,18 @@
         {
             if ( pg.Line >= np.LineIndex -1 && pg.Line <= np.LineIndex+1
                 && pg.Index >= np.StartIndex -1 && pg.Index <= np.EndIndex)
-                {
-                    connectedNps.Add(np);
-                }
+            {
+                connectedNps.Add(np);
+            }
         }
         if (connectedNps.Count != 2) return 0;
         var res = connectedNps[0].Number * connectedNps[1].Number;
         return res;
     }
 
-    static void PartTwo(StreamReader sr)
+    public static void PartTwo(StreamReader sr, ILogger logger)
     {
-        Console.WriteLine("Part Two");
+        logger.LogInformation("Part Two");
         List<string> schematic = [];
 
         List<NumberPosition> nps = [];
@@ -150,6 +133,6 @@
         var validNps = nps.Where(np => IsValidNp(np,schematic)).ToList();
         int sum = pgs.Sum(pg => GearRatio(pg,validNps));
 
-        Console.WriteLine("Sum: "+sum);
+        logger.LogInformation("Sum: "+sum);
     }
 }
