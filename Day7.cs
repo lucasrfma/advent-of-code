@@ -164,8 +164,11 @@ public class Day7(StreamReader sr, ILogger logger)
 
             if (boostCandidates.Count > 0)
             {
-                char biggestValue = boostCandidates.MaxBy(CardValueMap);
-                cardCounts[biggestValue] += jCount;
+                // 2235 ms
+                // char biggestValue = boostCandidates.MaxBy(CardValueMap);
+                // cardCounts[biggestValue] += jCount;
+                // 1823ms
+                cardCounts[boostCandidates[0]] += jCount;
             }
             else if (cardCounts.Keys.Count > 0)
                 cardCounts[cardCounts.Keys.First()] += jCount;

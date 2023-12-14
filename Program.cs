@@ -43,9 +43,9 @@ internal class Program
 
         string input = args[2] switch
         {
-            "ex" => $"input-files\\{args[0]}\\ex-input.txt",
-            "fn" => $"input-files\\{args[0]}\\input.txt",
-            string any => $"input-files\\{args[0]}\\{any}",
+            "ex" => $@"input-files\{args[0]}\ex-input.txt",
+            "fn" => $@"input-files\{args[0]}\input.txt",
+            { } any => $@"input-files\{args[0]}\{any}",
         };
 
         string className = $"Day{args[0][1]}";
@@ -67,9 +67,9 @@ internal class Program
             int repeat = int.Parse(args[3]);
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            var (instance, method) = GetInstanceAndMethod(className,methodName,input,errorLogger);
             for (int i = 0; i < repeat; i++)
             {
+                var (instance, method) = GetInstanceAndMethod(className,methodName,input,errorLogger);
                 method.Invoke(instance,null);
             }
             stopwatch.Stop();
