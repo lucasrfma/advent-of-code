@@ -38,3 +38,7 @@ JJJJJ eluded me for the longest time....
 The most obvious (and likely better) way of doing this was by doing double comparison between hands (first of 'sets' like pairs, full houses and such) then by individual card.
 Instead I decided to try and synthesize a single number for each hand that reflected its value by setting a huge number for each type of set of cards, and a much smaller value for each individual card, multiplied according to
 its position in the hand in a way that a card positioned to the left is always more valuable than a card to the right to reflect the ordered nature of the individual card comparison stage.
+
+## Day Eight
+I think every time after doing one of these challenges I end up concluding that I should not anchor myself too much to part one's
+solution when moving on to part two.... to do just that again on the next one. 
