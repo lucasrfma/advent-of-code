@@ -31,3 +31,10 @@ Now it is a single dotnet project. No more repeated main functions, and easy to 
 
 ## Day Six
 The day I used Bhaskara's Formula after graduating high school
+
+## Day Seven
+JJJJJ eluded me for the longest time....
+
+The most obvious (and likely better) way of doing this was by doing double comparison between hands (first of 'sets' like pairs, full houses and such) then by individual card.
+Instead I decided to try and synthesize a single number for each hand that reflected its value by setting a huge number for each type of set of cards, and a much smaller value for each individual card, multiplied according to
+its position in the hand in a way that a card positioned to the left is always more valuable than a card to the right to reflect the ordered nature of the individual card comparison stage.
