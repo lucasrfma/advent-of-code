@@ -5,5 +5,5 @@
 **/bin/
 **/obj/
 **/Properties/
-**/ex-input.txt
-**/input.txt
+**/*ex-input.txt
+**/*input.txt
