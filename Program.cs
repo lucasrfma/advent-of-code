@@ -78,6 +78,7 @@ internal class Program
                 ts.Hours, ts.Minutes, ts.Seconds,
                 ts.Milliseconds);
             infoLogger.LogInformation("RunTime " + elapsedTime);
+            Console.WriteLine("RunTime " + elapsedTime);
         }
     }
 
@@ -109,8 +110,8 @@ internal class Program
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Could not read file {input}");
-            Console.WriteLine(e.Message);
+            logger.LogError($"Could not read file {input}");
+            logger.LogError(e.Message);
             Environment.Exit(1);
         }
         return (null,null);
