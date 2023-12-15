@@ -41,4 +41,11 @@ its position in the hand in a way that a card positioned to the left is always m
 
 ## Day Eight
 I think every time after doing one of these challenges I end up concluding that I should not anchor myself too much to part one's
-solution when moving on to part two.... to do just that again on the next one. 
+solution when moving on to part two.... to do just that again on the next one.
+
+## Day Nine
+Took me quite some time to get part 1 done, tried to look for zeroes looking at subsets of each line, before expanding the search
+to try and find shortcuts, but when I ran some tests at the end, just processing the whole line was a bit faster. Maybe with longer
+inputs this would have worked?
+
+Part two of this day was the easiest part two so far perhaps, my p1 solution basically had it solved right away.
