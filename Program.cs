@@ -48,7 +48,7 @@ internal class Program
             { } any => $@"input-files\{args[0]}\{any}",
         };
 
-        string className = $"Day{args[0][1]}";
+        string className = $"Day{args[0][1..]}";
         string methodName = args[1] switch
         {
             "p1" => "PartOne",
