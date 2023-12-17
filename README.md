@@ -49,3 +49,7 @@ to try and find shortcuts, but when I ran some tests at the end, just processing
 inputs this would have worked?
 
 Part two of this day was the easiest part two so far perhaps, my p1 solution basically had it solved right away.
+
+## Day Ten
+Wow, this was really hard for me! Really fun too, but now I'm not super confident about being able to catch up
+before x-mas.
