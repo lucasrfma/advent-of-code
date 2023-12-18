@@ -53,3 +53,6 @@ Part two of this day was the easiest part two so far perhaps, my p1 solution bas
 ## Day Ten
 Wow, this was really hard for me! Really fun too, but now I'm not super confident about being able to catch up
 before x-mas.
+
+## Day Eleven
+It was a neat day in the sense part two just asks "maybe you could have written that a bit better?" in regards to what you did in part 1.

@@ -4,7 +4,7 @@
             "type": "dotnet",
             "name": "Dotnet configuration",
             "projectPath": "aoc.csproj",
-            "args": ["d10","p1","ex"],
+            "args": ["d11","p1","ex"],
         },
         
     ]
